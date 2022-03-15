@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "sass": "dart-sass -wr ./src/scss/index.scss ./src/css/style.css"
+    "sass": "dart-sass --watch ./src/scss/main.scss ./src/css/style.css"
   },
   "repository": "https://github.com/jaypedia/fe-shopping",
   "author": "Millie <jay.lee.2280@gmail.com>",
