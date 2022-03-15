@@ -10,84 +10,119 @@
     <meta property="og:url" content="https://www.coupang.com" />
     <meta property="og:description" content="쿠팡은 로켓배송" />
     <meta property="og:type" content="website" />
-    <link rel="shortcut icon" href="//image9.coupangcdn.com/image/coupang/favicon/v2/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="./src/css/style.css">
+    <link
+      rel="shortcut icon"
+      href="//image9.coupangcdn.com/image/coupang/favicon/v2/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
   </head>
   <body>
     <div id="container" class="home">
-      <header id="header">
-        <div class="header__top-bar">
-          <menu class="top-bar__subscribe">
-            <li>즐겨찾기</li>
-            <li>입점신청</li>
-          </menu>
-          <menu class="top-bar__menu">
-            <li>로그인</li>
-            <li>회원가입</li>
-            <li>고객센터</li>
-          </menu>
-        </div>
-        <div class="header__category">
-          <button class="category__btn">카테고리</button>
-          <div class="category__layer">
-            <ul class="category__menu shopping-menu-list"></ul>
-            <ul class="category__menu ticket-menu-list"></ul>
-            <ul class="category__menu theme-menu-list"></ul>
+      <header class="header">
+        <div class="header__top-bar--wrap">
+          <div class="header__top-bar">
+            <menu class="top-bar__subscribe">
+              <li>즐겨찾기</li>
+              <li>입점신청</li>
+            </menu>
+            <menu class="top-bar__menu">
+              <li>로그인</li>
+              <li>회원가입</li>
+              <li>고객센터</li>
+            </menu>
           </div>
         </div>
+
         <main class="header__main">
-          <div class="header__main--top">
-            <div class="logo-box">
-              <a href="/" title="Coupang - 내가 잘사는 이유" class="logo">
-                <img src="//image7.coupangcdn.com/image/coupang/common/logo_coupang_w350.png" width="174" height="41" alt="쿠팡로고" />
-              </a>
+          <div class="header__main--category">
+            <button class="category__btn">카테고리</button>
+            <div class="category__layer">
+              <ul class="category__menu shopping-menu-list"></ul>
+              <ul class="category__menu ticket-menu-list"></ul>
+              <ul class="category__menu theme-menu-list"></ul>
             </div>
-            <div class="search-form-box">
-              <form id="search-form">
-                <div class="select--category">
-                  <a href="#" class="select--category--button">^</a>
-                  <a href="#" class="select--category--current">전체</a>
-                </div>
-                <input type="text" class="coupang-search" title="쿠팡 상품 검색" placeholder="찾고 싶은 상품을 검색해보세요!" />
-                <a href="#" class="speech-content-mic">마이크</a>
-                <a href="" class="search-btn" title="검색">검색</a>
-              </form>
-            </div>
-            <ul class="icon-menus">
-              <li class="my-coupang more">마이쿠팡</li>
-              <li class="cart more">장바구니</li>
-            </ul>
           </div>
-          <div class="header__main--gnb">
-            <ul class="gnb-menu">
-              <li class="rocket-delivery">
-                <a href="https://www.coupang.com/np/campaigns/82" class="rocket-delivery">로켓배송</a>
-              </li>
-              <li class="rocket-fresh">
-                <a href="https://www.coupang.com/np/categories/393760" class="rocket-fresh">로켓프레시</a>
-                <i class="ic-new"></i>
-              </li>
-              <li class="business-mall-landing">
-                <a href="https://login.coupang.com/corporation/member/landing-page" class="business-mall-landing">쿠팡비즈</a>
-                <i class="ic-new"></i>
-              </li>
-              <li class="coupang-global">
-                <a href="https://www.coupang.com/np/coupangglobal" class="coupang-global">로켓직구</a>
-              </li>
-              <li class="">
-                <a href="https://www.coupang.com/np/goldbox" class="gold-box">골드박스</a>
-              </li>
-              <li class="subscription">
-                <a href="https://www.coupang.com/np/campaigns/83" class="subscription">와우회원할인</a>
-              </li>
-              <li class="gnb-coupangbenefit">
-                <a href="https://www.coupang.com/np/coupangbenefit" class="gnb-coupangbenefit">이벤트/쿠폰</a>
-              </li>
-              <li class="gnb-exhibition">
-                <a href="https://www.coupang.com/np/exhibition" class="gnb-exhibition">기획전</a>
-              </li>
-              <li><a href="https://trip.coupang.com?channel=gnb" class="travel">여행/티켓</a></li>
-            </ul>
+          <div class="header__main-box">
+            <div class="header__main-box--top">
+              <div class="logo-box">
+                <a href="/" title="Coupang - 내가 잘사는 이유" class="logo">
+                  <img
+                    src="//image7.coupangcdn.com/image/coupang/common/logo_coupang_w350.png"
+                    width="174"
+                    height="41"
+                    alt="쿠팡로고"
+                  />
+                </a>
+              </div>
+              <div class="search-form-box">
+                <form class="search">
+                  <div class="search__category">
+                    <a href="#" class="search__category--current">전체</a>
+                    <a href="#" class="search__category--button"></a>
+                  </div>
+                  <input
+                    type="text"
+                    class="search__input"
+                    title="쿠팡 상품 검색"
+                    placeholder="찾고 싶은 상품을 검색해보세요!"
+                  />
+                  <a href="#" class="search__speech"></a>
+                  <a href="#" class="search__btn" title="검색"></a>
+                </form>
+              </div>
+              <ul class="icon-menus">
+                <li class="my-coupang more">마이쿠팡</li>
+                <li class="cart more">장바구니</li>
+              </ul>
+            </div>
+            <div class="header__main-box--gnb">
+              <ul class="gnb-menu">
+                <li class="rocket-delivery">
+                  <a href="https://www.coupang.com/np/campaigns/82" class="rocket-delivery"
+                    >로켓배송</a
+                  >
+                </li>
+                <li class="rocket-fresh">
+                  <a href="https://www.coupang.com/np/categories/393760" class="rocket-fresh"
+                    >로켓프레시</a
+                  >
+                  <i class="ic-new"></i>
+                </li>
+                <li class="business-mall-landing">
+                  <a
+                    href="https://login.coupang.com/corporation/member/landing-page"
+                    class="business-mall-landing"
+                    >쿠팡비즈</a
+                  >
+                  <i class="ic-new"></i>
+                </li>
+                <li class="coupang-global">
+                  <a href="https://www.coupang.com/np/coupangglobal" class="coupang-global"
+                    >로켓직구</a
+                  >
+                </li>
+                <li class="">
+                  <a href="https://www.coupang.com/np/goldbox" class="gold-box">골드박스</a>
+                </li>
+                <li class="subscription">
+                  <a href="https://www.coupang.com/np/campaigns/83" class="subscription"
+                    >와우회원할인</a
+                  >
+                </li>
+                <li class="gnb-coupangbenefit">
+                  <a href="https://www.coupang.com/np/coupangbenefit" class="gnb-coupangbenefit"
+                    >이벤트/쿠폰</a
+                  >
+                </li>
+                <li class="gnb-exhibition">
+                  <a href="https://www.coupang.com/np/exhibition" class="gnb-exhibition">기획전</a>
+                </li>
+                <li>
+                  <a href="https://trip.coupang.com?channel=gnb" class="travel">여행/티켓</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </main>
       </header>
