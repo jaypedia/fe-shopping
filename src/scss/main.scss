@@ -6,4 +6,12 @@
 
 @import './mixins/flexbox';
 
+@import './layout/container';
+
+@import './components/header';
 @import './components/banner';
+
+@import './modules/search-form';
+@import './modules/gnb';
+@import './modules/icon-menu';
+@import './modules/search-layer';

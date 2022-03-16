@@ -1,0 +1,62 @@
+.header {
+  @include column-flexbox;
+  width: 100%;
+  position: relative;
+
+  &__top-bar {
+    &--wrap {
+      background-color: $background;
+      width: 100%;
+      @include flexbox;
+    }
+    width: 1020px;
+    height: 32px;
+    font-size: $font-size-11;
+    @include flexbox(between);
+
+    & > * {
+      @include flexbox;
+    }
+
+    & li {
+      padding: 10px 0 0 12px;
+      height: 24px;
+    }
+  }
+
+  &__main {
+    width: 1020px;
+    @include flexbox(between);
+    z-index: 1;
+
+    &--category {
+      width: 110px;
+      height: 115px;
+      background: url('https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png') no-repeat;
+      text-align: center;
+
+      .category__btn {
+        color: $white;
+        font-size: $font-size-13;
+        margin-top: 73px;
+      }
+    }
+  }
+
+  &__main-box {
+    @include column-flexbox;
+    margin-top: 10px;
+    width: 880px;
+
+    &--top {
+      @include flexbox(between);
+      margin-bottom: 20px;
+      width: 880px;
+
+      .logo-box {
+        margin-right: 20px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
