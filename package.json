@@ -1,14 +1,16 @@
 {
   "name": "fe-shopping",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "sass": "dart-sass --watch ./src/scss/main.scss ./src/css/style.css"
+    "sass": "dart-sass --watch ./src/scss/main.scss ./src/css/style.css",
+    "start": "nodemon --watch server.js"
   },
   "repository": "https://github.com/jaypedia/fe-shopping",
   "author": "Millie <jay.lee.2280@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dart-sass": "^1.25.0"
+    "dart-sass": "^1.25.0",
+    "express": "^4.17.3"
   }
 }
