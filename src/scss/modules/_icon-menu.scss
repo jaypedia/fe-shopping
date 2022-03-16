@@ -1,0 +1,38 @@
+.icon-menu {
+  @include flexbox(between);
+  font-size: $font-size-12;
+  width: 120px;
+  height: 60px;
+
+  .icon {
+    background: url('https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png') no-repeat;
+  }
+
+  .my-coupang__icon {
+    width: 29px;
+    height: 31px;
+    background-position: -112px -42px;
+    margin: 10px 10px 0 10px;
+  }
+
+  .cart__icon {
+    width: 40px;
+    height: 41px;
+    background-position: -112px 0;
+    margin: 0 5px 0 5px;
+    position: relative;
+
+    .cart__count {
+      font-size: $font-size-11;
+      color: $white;
+      font-weight: bold;
+      position: absolute;
+      top: 3px;
+      right: 9px;
+    }
+  }
+
+  .title {
+    margin-top: 5px;
+  }
+}
