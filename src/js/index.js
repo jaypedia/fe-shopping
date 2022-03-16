@@ -1,5 +1,6 @@
 import { fetchData } from './util/util.js';
 
+// 검색 카테고리 부분
 const searchCategoryBtn = document.querySelector('.search__category');
 const searchCategoryCurrent = document.querySelector('.search__category--current');
 const searchCategoryOption = document.querySelector('.search__category--option');
@@ -17,15 +18,31 @@ const searchHistory = document.querySelector('.search__history');
 const searchHistoryList = document.querySelector('.search__history--list');
 const searchForm = document.querySelector('.search');
 const deleteAllBtn = document.querySelector('.delete-all-btn');
+const historyOnOffBtn = document.querySelector('.history-onoff-btn');
 const searchWordArr = [];
 
 searchInput.addEventListener('focus', () => {
+  if (!localStorage.getItem('searchWord')) return;
   searchHistory.classList.add('show');
 });
 
-searchInput.addEventListener('focusout', () => {
+deleteAllBtn.addEventListener('click', () => {
+  localStorage.removeItem('searchWord');
+  renderSearchHistory();
   searchHistory.classList.remove('show');
-  searchAuto.classList.remove('show');
+});
+
+let historyOn = true;
+historyOnOffBtn.addEventListener('click', () => {
+  if (historyOn) {
+    historyOn = false;
+    searchHistoryList.innerHTML = `<h3 class="history-off-msg">최근 검색어 저장 기능이 꺼져 있습니다.</h3>`;
+    historyOnOffBtn.textContent = '최근검색어켜기';
+  } else {
+    historyOn = true;
+    renderSearchHistory();
+    historyOnOffBtn.textContent = '최근검색어끄기';
+  }
 });
 
 // 검색어 추천 기능
@@ -39,8 +56,14 @@ searchInput.addEventListener('input', ({ target }) => {
   }
   const userInput = target.value;
   let suggestion = null;
+
   fetchData('/search').then(result => {
     suggestion = result.filter(item => item.keyword.includes(userInput));
+
+    if (!suggestion.length) {
+      searchAutoList.innerHTML = `<h3>검색 결과가 없습니다.</h3>`;
+      return;
+    }
 
     if (suggestion.length > 10) {
       suggestion = suggestion.slice(0, 10);
@@ -67,11 +90,14 @@ searchForm.addEventListener('submit', e => {
     searchWordArr.pop();
   }
   localStorage.setItem('searchWord', JSON.stringify(searchWordArr));
-  renderSearchWord();
+  renderSearchHistory();
 });
 
-function renderSearchWord() {
-  if (!localStorage.getItem('searchWord')) return;
+function renderSearchHistory() {
+  if (!localStorage.getItem('searchWord')) {
+    searchHistoryList.innerHTML = '';
+    return;
+  }
   let searchItems = '';
   JSON.parse(localStorage.getItem('searchWord')).forEach(item => {
     searchItems += ` <li class="search__history--item">${item}</li>`;
@@ -79,4 +105,12 @@ function renderSearchWord() {
   searchHistoryList.innerHTML = searchItems;
 }
 
-renderSearchWord();
+renderSearchHistory();
+
+window.addEventListener('click', ({ target }) => {
+  if (target === searchInput || target === historyOnOffBtn) return;
+  if (!target.classList.contains('search-layer')) {
+    searchAuto.classList.remove('show');
+    searchHistory.classList.remove('show');
+  }
+});
