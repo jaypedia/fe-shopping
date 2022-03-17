@@ -1,4 +1,4 @@
-const fetchData = async url => {
+export const fetchData = async url => {
   try {
     const data = await fetch(url);
     return data.json();
@@ -6,5 +6,3 @@ const fetchData = async url => {
     console.log(err);
   }
 };
-
-export { fetchData };
