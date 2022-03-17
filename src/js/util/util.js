@@ -1,6 +1,10 @@
 const fetchData = async url => {
-  const data = await fetch(url);
-  return data.json();
+  try {
+    const data = await fetch(url);
+    return data.json();
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export { fetchData };

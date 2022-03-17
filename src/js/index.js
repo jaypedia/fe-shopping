@@ -55,22 +55,19 @@ searchInput.addEventListener('input', ({ target }) => {
     return;
   }
   const userInput = target.value;
-  let suggestion = null;
 
-  fetchData('/search').then(result => {
-    suggestion = result.filter(item => item.keyword.includes(userInput));
-
-    if (!suggestion.length) {
+  fetchData(`http://localhost:3000/autoComplete?keyword=${userInput}`).then(result => {
+    if (!result.length) {
       searchAutoList.innerHTML = `<h3>검색 결과가 없습니다.</h3>`;
       return;
     }
 
-    if (suggestion.length > 10) {
-      suggestion = suggestion.slice(0, 10);
+    if (result.length > 10) {
+      result = result.slice(0, 10);
     }
 
     let items = '';
-    suggestion.forEach(item => {
+    result.forEach(item => {
       const [unmatchedBefore, unmatchedAfter] = item.keyword.split(userInput);
       items += `<li class="search__auto--item">${unmatchedBefore}<span class="search__matched">${userInput}</span>${unmatchedAfter}</li>
       `;
