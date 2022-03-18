@@ -1,6 +1,5 @@
 import { localStorageDB } from '../../../../utils/localStorageDB.js';
 import { fetchData } from '../../../../utils/fetchData.js';
-import { KEY } from '../../../../constants/constants.js';
 import Component from '../../../../core/Component.js';
 import SearchCategory from './components/SearchCategory.js';
 import AutoComplete from './components/AutoComplete.js';
@@ -61,7 +60,7 @@ export default class Search extends Component {
     });
 
     this.addEvent('keyup', '.search__input', e => {
-      if (e.keyCode === KEY.UP || e.keyCode === KEY.DOWN) return;
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
       clearTimeout(this.$state.typingTimer);
       this.$state.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target), this.$state.doneTypingInterval);
     });
@@ -77,12 +76,12 @@ export default class Search extends Component {
     const autoListArr = [...searchAutoList.children];
     if (!autoListArr.length) return;
 
-    if (e.keyCode === KEY.UP) {
+    if (e.key === 'ArrowUp') {
       console.log(autoListArr[this.$state.selectedIdx]);
       searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
       searchAutoList.children[this.$state.selectedIdx].nextSibling.classList.remove('selected');
       this.$state.selectedIdx--;
-    } else if (e.keyCode === KEY.DOWN) {
+    } else if (e.key === 'ArrowDown') {
       console.log(autoListArr[this.$state.selectedIdx]);
       searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
       searchAutoList.children[this.$state.selectedIdx].previousSibling?.classList.remove('selected');
