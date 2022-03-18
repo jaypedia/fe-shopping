@@ -1,25 +1,86 @@
 .search-layer {
-  display: none;
-  width: 370px;
-  height: 328px;
   background-color: $white;
   border: 1px solid $border;
-  font-size: $font-size-12;
   box-shadow: 0 4px 5px rgb(0 0 0 / 30%);
-  z-index: 3;
+  display: none;
+  font-size: $font-size-12;
+  height: 328px;
   left: 126px;
+  width: 370px;
+  z-index: 3;
 
   ul {
-    padding: 20px 12px 6px 12px;
+    padding: 20px 12px 6px;
   }
 
   li {
+    cursor: pointer;
     padding-bottom: 16px;
+  }
+}
+
+.search__auto {
+  height: 328px;
+  position: relative;
+  width: 370px;
+  z-index: 4;
+
+  &--item:hover {
+    text-decoration: underline;
+  }
+}
+
+.search__history {
+  position: relative;
+
+  &--title {
+    border-bottom: 1px solid $border;
+    padding: 12px;
+  }
+
+  &-btns {
+    @include flexbox(between);
+    background-color: $background;
+    bottom: 0;
+    color: $secondary;
+    height: 30px;
+    padding: 0 12px;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-btns > span {
     cursor: pointer;
   }
 
-  li:hover {
+  &-btns > span:hover {
     text-decoration: underline;
+  }
+
+  &--item {
+    @include flexbox(between);
+  }
+}
+
+.history {
+  &-off-msg {
+    color: $secondary;
+    font-size: $font-size-14;
+    padding: 30px;
+    text-align: center;
+  }
+
+  &__word:hover {
+    text-decoration: underline;
+  }
+
+  &__delete-btn {
+    color: $blue;
+    opacity: 0;
+  }
+
+  &__delete-btn:hover {
+    opacity: 1;
   }
 }
 
@@ -27,42 +88,10 @@
   display: block;
 }
 
-.search__auto {
-  width: 370px;
-  height: 328px;
-  z-index: 4;
-  position: relative;
+.hide {
+  display: none;
 }
 
-.search__history {
-  position: relative;
-
-  &--title {
-    padding: 12px;
-    border-bottom: 1px solid $border;
-  }
-
-  .search__history-btns {
-    @include flexbox(between);
-    width: 100%;
-    height: 30px;
-    background-color: $background;
-    padding: 0 12px 0 12px;
-    color: $secondary;
-    position: absolute;
-    bottom: 0;
-  }
-
-  .search__history-btns > span {
-    cursor: pointer;
-  }
-
-  .search__history-btns > span:hover {
-    text-decoration: underline;
-  }
-}
-
-.history-off-msg {
-  text-align: center;
-  color: $secondary;
+.selected {
+  text-decoration: underline;
 }
