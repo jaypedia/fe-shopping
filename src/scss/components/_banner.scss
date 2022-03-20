@@ -1,31 +1,35 @@
 .banner {
-  width: 100%;
+  background-color: $background;
   height: 450px;
+  width: 100%;
 
   &__img-list {
-    position: relative;
-    width: 100%;
     height: 450px;
+    width: 100%;
   }
 
   &__img-item {
-    width: 100%;
-    height: 100%;
     background: url('https://static.coupangcdn.com/pa/cmg_paperboy/image/1647244593217/220210_%EC%BF%A0%ED%8C%A1%EB%B9%84%EC%A6%88_SMD-15590_PC%284%29.jpg')
-      no-repeat;
+      center no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__selected-product {
+    position: relative;
   }
 
   &__thumbnail-list {
+    box-shadow: 0 4px 5px rgb(0 0 0 / 30%);
     position: absolute;
     right: 430px;
-    top: 185px;
-    box-shadow: 0 4px 5px rgb(0 0 0 / 30%);
+    top: 37px;
   }
 
   &__thumbnail-item {
-    width: 180px;
-    height: 60px;
     border-bottom: 1px solid $border;
+    height: 60px;
+    width: 180px;
   }
 
   &__thumbnail-item:hover {
