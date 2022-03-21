@@ -1,5 +1,5 @@
 import { localStorageDB } from '../../../../utils/localStorageDB.js';
-import { fetchData } from '../../../../utils/fetchData.js';
+import { fetchKeyword } from '../../../../utils/fetch.js';
 import Component from '../../../../core/Component.js';
 import SearchCategory from './components/SearchCategory.js';
 import AutoComplete from './components/AutoComplete.js';
@@ -103,19 +103,23 @@ export default class Search extends Component {
     }
   }
 
-  displaySearchAutoList(target) {
+  async displaySearchAutoList(target) {
     const userInput = target.value;
     const searchAutoList = document.querySelector('.search__auto--list');
-    fetchData(`http://localhost:3000/autoComplete?keyword=${userInput}`).then(result => {
-      if (!result.length) {
+
+    try {
+      const suggestion = await fetchKeyword(userInput);
+      if (!suggestion.length) {
         searchAutoList.innerHTML = `<h3>검색 결과가 없습니다.</h3>`;
         return;
       }
-      searchAutoList.innerHTML = result.reduce((acc, cur) => {
+      searchAutoList.innerHTML = suggestion.reduce((acc, cur) => {
         const [unmatchedFront, unmatchedBack] = cur.keyword.split(userInput.trim());
         return (acc += `<li class="search__auto--item">${unmatchedFront}<span class="search__matched">${userInput}</span>${unmatchedBack}</li>`);
       }, '');
-    });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   showSearchHistoryLayer() {
