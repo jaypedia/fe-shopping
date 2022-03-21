@@ -4,25 +4,31 @@ const LocalStorageDB = function () {
   this.value = this.value || {};
 };
 
-LocalStorageDB.prototype.set = function (key, value) {
-  if (this.checkifSupport()) {
-    try {
-      this.key = key;
-      this.value = value;
-      window.localStorage.setItem(this.key, this.value);
-    } catch (e) {
-      throw new TypeError('Exceeded Storage Quota!');
-      return true;
-    }
-  } else {
-    throw new TypeError('No support. Use a fallback such as browser cookies or store on the server.');
+LocalStorageDB.prototype.checkifSupport = function () {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
     return false;
   }
 };
+
+LocalStorageDB.prototype.set = function (key, value) {
+  if (!this.checkifSupport()) {
+    throw new TypeError('No support. Use a fallback such as browser cookies or store on the server.');
+  }
+  try {
+    this.key = key;
+    this.value = value;
+    window.localStorage.setItem(this.key, this.value);
+  } catch (e) {
+    throw new TypeError('Exceeded Storage Quota!');
+  }
+};
+
 LocalStorageDB.prototype.get = function (key) {
   try {
     this.key = key;
-    var data = window.localStorage.getItem(this.key);
+    const data = window.localStorage.getItem(this.key);
     if (data && typeof data === 'object') {
       return JSON.parse(data);
     } else {
@@ -32,14 +38,16 @@ LocalStorageDB.prototype.get = function (key) {
     return null;
   }
 };
+
 LocalStorageDB.prototype.getAll = function () {
-  var array = new Array();
-  for (var i = 0; i < window.localStorage.length; i++) {
-    var key = localStorage.key(i);
+  const array = new Array();
+  for (let i = 0; i < window.localStorage.length; i++) {
+    const key = localStorage.key(i);
     array.push(this.get(key));
   }
   return array;
 };
+
 LocalStorageDB.prototype.remove = function (key) {
   this.key = key;
   try {
@@ -59,17 +67,11 @@ LocalStorageDB.prototype.remove = function (key) {
     }
   }
 };
+
 LocalStorageDB.prototype.clearAll = function () {
   try {
     window.localStorage.clear();
     return true;
-  } catch (e) {
-    return false;
-  }
-};
-LocalStorageDB.prototype.checkifSupport = function () {
-  try {
-    return 'localStorage' in window && window['localStorage'] !== null;
   } catch (e) {
     return false;
   }
