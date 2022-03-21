@@ -104,7 +104,6 @@ export default class Search extends Component {
   }
 
   displaySearchAutoList(target) {
-    const MAX_RESULT_COUNT = 10;
     const userInput = target.value;
     const searchAutoList = document.querySelector('.search__auto--list');
     fetchData(`http://localhost:3000/autoComplete?keyword=${userInput}`).then(result => {
@@ -112,11 +111,6 @@ export default class Search extends Component {
         searchAutoList.innerHTML = `<h3>검색 결과가 없습니다.</h3>`;
         return;
       }
-
-      if (result.length > MAX_RESULT_COUNT) {
-        result = result.slice(0, MAX_RESULT_COUNT);
-      }
-
       searchAutoList.innerHTML = result.reduce((acc, cur) => {
         const [unmatchedFront, unmatchedBack] = cur.keyword.split(userInput.trim());
         return (acc += `<li class="search__auto--item">${unmatchedFront}<span class="search__matched">${userInput}</span>${unmatchedBack}</li>`);
