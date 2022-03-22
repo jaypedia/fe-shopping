@@ -9,12 +9,12 @@ export default class Search extends Component {
   setup() {
     this.$state = {
       searchWord: JSON.parse(localStorageDB.get('searchWord')) || [],
-      historyOn: true,
-      selectedIdx: 0,
-      typingTimer: null,
-      doneTypingInterval: 500,
       autoComplete: null,
     };
+    this.typingTimer = null;
+    this.historyOn = true;
+    this.selectedIdx = -1;
+    this.doneTypingInterval = 500;
   }
 
   template() {
@@ -52,7 +52,7 @@ export default class Search extends Component {
 
     this.addEvent('submit', '.search', e => {
       e.preventDefault();
-      if (!this.$state.historyOn) return;
+      if (!this.historyOn) return;
       this.saveSearchWord();
       this.showSearchHistoryLayer();
     });
@@ -64,47 +64,45 @@ export default class Search extends Component {
     this.addEvent('keyup', '.search__input', e => {
       const { autoComplete } = this.$state;
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
-      clearTimeout(this.$state.typingTimer);
-      this.$state.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target, autoComplete), this.$state.doneTypingInterval);
+      clearTimeout(this.typingTimer);
+      this.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target, autoComplete), this.doneTypingInterval);
     });
 
     this.addEvent('keydown', '.search__input', e => {
-      clearTimeout(this.$state.typingTimer);
-      this.scrollAutoComplete(e);
+      clearTimeout(this.typingTimer);
+      if (!(e.key === 'ArrowUp' || e.key === 'ArrowDown')) return;
+      this.scrollAutoComplete(e.key);
     });
   }
 
-  scrollAutoComplete(e) {
+  scrollAutoComplete(key) {
     const searchAutoList = document.querySelector('.search__auto--list');
     if (!searchAutoList.children.length) return;
-    const maxIdx = searchAutoList.children.length - 1;
+    const MAX_IDX = searchAutoList.children.length - 1;
+    const INITIAL_IDX = -1;
 
-    if (e.key === 'ArrowUp') {
-      if (this.$state.selectedIdx < 0) {
-        this.$state.selectedIdx = maxIdx;
-        searchAutoList.children[0].classList.remove('selected');
-      }
-      if (this.$state.selectedIdx > maxIdx) {
-        this.$state.selectedIdx--;
-      }
-      searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
-      searchAutoList.children[this.$state.selectedIdx].previousSibling?.classList.remove('selected');
-      searchAutoList.children[this.$state.selectedIdx].nextSibling?.classList.remove('selected');
-      if (this.$state.selectedIdx >= 0) {
-        this.$state.selectedIdx--;
-      }
-    } else if (e.key === 'ArrowDown') {
-      if (this.$state.selectedIdx > maxIdx) {
-        this.$state.selectedIdx = 0;
-        searchAutoList.children[maxIdx].classList.remove('selected');
-      }
-      searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
-      searchAutoList.children[this.$state.selectedIdx].previousSibling?.classList.remove('selected');
-      searchAutoList.children[this.$state.selectedIdx].nextSibling?.classList.remove('selected');
-      if (this.$state.selectedIdx <= maxIdx) {
-        this.$state.selectedIdx++;
-      }
-    }
+    const direction = {
+      ArrowUp: () => {
+        if (this.selectedIdx <= 0) {
+          this.selectedIdx = MAX_IDX + 1;
+          searchAutoList.children[0].classList.remove('selected');
+        }
+        searchAutoList.children[--this.selectedIdx].classList.add('selected');
+        if (this.selectedIdx === MAX_IDX) return;
+        searchAutoList.children[this.selectedIdx].nextSibling.classList.remove('selected');
+      },
+      ArrowDown: () => {
+        if (this.selectedIdx === MAX_IDX) {
+          this.selectedIdx = INITIAL_IDX;
+          searchAutoList.children[MAX_IDX].classList.remove('selected');
+        }
+        searchAutoList.children[++this.selectedIdx].classList.add('selected');
+        if (!this.selectedIdx) return;
+        searchAutoList.children[this.selectedIdx].previousSibling.classList.remove('selected');
+      },
+    };
+
+    direction[key]();
   }
 
   setAutoComplete(target) {
@@ -160,13 +158,13 @@ export default class Search extends Component {
     const searchHistoryList = document.querySelector('.search__history--list');
     const historyOffMsg = document.querySelector('.history-off-msg');
     const historyOnOffBtn = document.querySelector('.history-onoff-btn');
-    if (this.$state.historyOn) {
+    if (this.historyOn) {
       toggleHide();
-      this.$state.historyOn = false;
+      this.historyOn = false;
       historyOnOffBtn.textContent = '최근검색어켜기';
     } else {
       toggleHide();
-      this.$state.historyOn = true;
+      this.historyOn = true;
       historyOnOffBtn.textContent = '최근검색어끄기';
     }
 
