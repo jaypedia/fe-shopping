@@ -13,6 +13,7 @@ export default class Search extends Component {
       selectedIdx: 0,
       typingTimer: null,
       doneTypingInterval: 500,
+      autoComplete: null,
     };
   }
 
@@ -34,7 +35,8 @@ export default class Search extends Component {
     const $searchAuto = document.querySelector('.search__auto');
     const $searchHistory = document.querySelector('.search__history');
     new SearchCategory($searchCategory);
-    new AutoComplete($searchAuto);
+    const autoComplete = new AutoComplete($searchAuto);
+    this.$state.autoComplete = autoComplete;
     new RecentSearch($searchHistory, {
       searchWord: this.$state.searchWord,
       deleteAll: this.deleteAll.bind(this),
@@ -60,9 +62,10 @@ export default class Search extends Component {
     });
 
     this.addEvent('keyup', '.search__input', e => {
+      const { autoComplete } = this.$state;
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
       clearTimeout(this.$state.typingTimer);
-      this.$state.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target), this.$state.doneTypingInterval);
+      this.$state.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target, autoComplete), this.$state.doneTypingInterval);
     });
 
     this.addEvent('keydown', '.search__input', e => {
@@ -73,19 +76,34 @@ export default class Search extends Component {
 
   scrollAutoComplete(e) {
     const searchAutoList = document.querySelector('.search__auto--list');
-    const autoListArr = [...searchAutoList.children];
-    if (!autoListArr.length) return;
+    if (!searchAutoList.children.length) return;
+    const maxIdx = searchAutoList.children.length - 1;
 
     if (e.key === 'ArrowUp') {
-      console.log(autoListArr[this.$state.selectedIdx]);
-      searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
-      searchAutoList.children[this.$state.selectedIdx].nextSibling.classList.remove('selected');
-      this.$state.selectedIdx--;
-    } else if (e.key === 'ArrowDown') {
-      console.log(autoListArr[this.$state.selectedIdx]);
+      if (this.$state.selectedIdx < 0) {
+        this.$state.selectedIdx = maxIdx;
+        searchAutoList.children[0].classList.remove('selected');
+      }
+      if (this.$state.selectedIdx > maxIdx) {
+        this.$state.selectedIdx--;
+      }
       searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
       searchAutoList.children[this.$state.selectedIdx].previousSibling?.classList.remove('selected');
-      this.$state.selectedIdx++;
+      searchAutoList.children[this.$state.selectedIdx].nextSibling?.classList.remove('selected');
+      if (this.$state.selectedIdx >= 0) {
+        this.$state.selectedIdx--;
+      }
+    } else if (e.key === 'ArrowDown') {
+      if (this.$state.selectedIdx > maxIdx) {
+        this.$state.selectedIdx = 0;
+        searchAutoList.children[maxIdx].classList.remove('selected');
+      }
+      searchAutoList.children[this.$state.selectedIdx].classList.add('selected');
+      searchAutoList.children[this.$state.selectedIdx].previousSibling?.classList.remove('selected');
+      searchAutoList.children[this.$state.selectedIdx].nextSibling?.classList.remove('selected');
+      if (this.$state.selectedIdx <= maxIdx) {
+        this.$state.selectedIdx++;
+      }
     }
   }
 
@@ -103,20 +121,11 @@ export default class Search extends Component {
     }
   }
 
-  async displaySearchAutoList(target) {
+  async displaySearchAutoList(target, autoComplete) {
     const userInput = target.value;
-    const searchAutoList = document.querySelector('.search__auto--list');
-
     try {
       const suggestion = await fetchKeyword(userInput);
-      if (!suggestion.length) {
-        searchAutoList.innerHTML = `<h3>검색 결과가 없습니다.</h3>`;
-        return;
-      }
-      searchAutoList.innerHTML = suggestion.reduce((acc, cur) => {
-        const [unmatchedFront, unmatchedBack] = cur.keyword.split(userInput.trim());
-        return (acc += `<li class="search__auto--item">${unmatchedFront}<span class="search__matched">${userInput}</span>${unmatchedBack}</li>`);
-      }, '');
+      autoComplete.setState({ suggestion, userInput });
     } catch (err) {
       console.log(err);
     }
@@ -124,7 +133,9 @@ export default class Search extends Component {
 
   showSearchHistoryLayer() {
     const searchHistory = document.querySelector('.search__history');
-    if (!this.$state.searchWord.length) return; // 최근 검색어 없으면 layer를 노출하지 않음
+    const $searchAuto = document.querySelector('.search__auto');
+    if (!this.$state.searchWord.length) return;
+    if ($searchAuto.classList.contains('show')) return;
     searchHistory.classList.add('show');
   }
 
