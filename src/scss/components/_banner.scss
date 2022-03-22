@@ -16,13 +16,14 @@
   }
 
   &__selected-product {
+    @include flexbox();
     position: relative;
   }
 
   &__thumbnail-list {
     box-shadow: 0 4px 5px rgb(0 0 0 / 30%);
     position: absolute;
-    right: 430px;
+    right: 10px;
     top: 37px;
   }
 
@@ -36,9 +37,16 @@
     outline: 2px solid $blue;
     outline-offset: -2px;
   }
+
+  &__thumbnail--container {
+    height: 450px;
+    position: absolute;
+    top: 0;
+    width: 1000px;
+  }
 }
 
-.today-selected {
+.selected-banner {
   outline: 2px solid $blue;
   outline-offset: -2px;
 }

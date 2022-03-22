@@ -485,12 +485,15 @@ template {
   width: 100%;
 }
 .banner__selected-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 .banner__thumbnail-list {
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
   position: absolute;
-  right: 430px;
+  right: 10px;
   top: 37px;
 }
 .banner__thumbnail-item {
@@ -502,8 +505,14 @@ template {
   outline: 2px solid #4285f4;
   outline-offset: -2px;
 }
+.banner__thumbnail--container {
+  height: 450px;
+  position: absolute;
+  top: 0;
+  width: 1000px;
+}
 
-.today-selected {
+.selected-banner {
   outline: 2px solid #4285f4;
   outline-offset: -2px;
 }

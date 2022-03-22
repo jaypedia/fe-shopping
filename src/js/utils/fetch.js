@@ -15,3 +15,12 @@ export const fetchKeyword = async keyword => {
     console.log(err);
   }
 };
+
+export const fetchBanner = async () => {
+  try {
+    const data = await fetch('http://localhost:3000/banner');
+    return data.json();
+  } catch (err) {
+    console.log(err);
+  }
+};
