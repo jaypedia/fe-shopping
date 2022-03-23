@@ -6,3 +6,7 @@ export const fetchData = async (url, query = '') => {
     console.log(err);
   }
 };
+
+export const isArrowKey = key => {
+  return key === 'ArrowUp' || key === 'ArrowDown';
+};

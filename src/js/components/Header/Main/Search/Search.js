@@ -1,5 +1,5 @@
 import { localStorageDB } from '../../../../utils/localStorageDB.js';
-import { fetchData } from '../../../../utils/utils.js';
+import { fetchData, isArrowKey } from '../../../../utils/utils.js';
 import { URL } from '../../../../constants/constants.js';
 import Component from '../../../../core/Component.js';
 import SearchCategory from './components/SearchCategory.js';
@@ -20,7 +20,7 @@ export default class Search extends Component {
   }
 
   template() {
-    return `
+    return /*html*/ `
     <form class="search">
       <div class="search__category"></div>
       <input type="text" class="search__input" title="쿠팡 상품 검색" placeholder="찾고 싶은 상품을 검색해보세요!" />
@@ -60,7 +60,7 @@ export default class Search extends Component {
     });
 
     this.addEvent('focusout', '.search__input', () => {
-      this.selectedIdx = -1;
+      this.initSelectedIdx();
     });
 
     this.addEvent('submit', '.search', e => {
@@ -76,19 +76,24 @@ export default class Search extends Component {
 
     this.addEvent('keyup', '.search__input', e => {
       const { autocomplete } = this.$state;
-      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
+      if (isArrowKey(e.key)) return;
       clearTimeout(this.typingTimer);
       this.typingTimer = setTimeout(() => {
         this.displaySearchAutoList(e.target, autocomplete);
-        this.selectedIdx = -1;
+        this.initSelectedIdx();
       }, this.doneTypingInterval);
     });
 
     this.addEvent('keydown', '.search__input', e => {
       clearTimeout(this.typingTimer);
-      if (!(e.key === 'ArrowUp' || e.key === 'ArrowDown')) return;
+      if (!isArrowKey(e.key)) return;
+      if (e.key === 'ArrowUp') e.preventDefault();
       this.scrollAutocomplete(e.key);
     });
+  }
+
+  initSelectedIdx() {
+    this.selectedIdx = -1;
   }
 
   scrollAutocomplete(key) {
