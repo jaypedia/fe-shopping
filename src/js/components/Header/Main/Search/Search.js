@@ -1,5 +1,6 @@
 import { localStorageDB } from '../../../../utils/localStorageDB.js';
-import { fetchKeyword } from '../../../../utils/fetch.js';
+import { fetchData } from '../../../../utils/fetch.js';
+import { URL } from '../../../../constants/constants.js';
 import Component from '../../../../core/Component.js';
 import SearchCategory from './components/SearchCategory.js';
 import AutoComplete from './components/AutoComplete.js';
@@ -139,7 +140,7 @@ export default class Search extends Component {
   async displaySearchAutoList(target, autoComplete) {
     const userInput = target.value;
     try {
-      const suggestion = await fetchKeyword(userInput);
+      const suggestion = await fetchData(URL.keyword, userInput);
       autoComplete.setState({ suggestion, userInput });
     } catch (err) {
       console.log(err);

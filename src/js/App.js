@@ -1,7 +1,8 @@
 import Component from './core/Component.js';
 import Header from './components/Header/Header.js';
 import Banner from './components/Banner/Banner.js';
-import { fetchBanner } from './utils/fetch.js';
+import { fetchData } from './utils/fetch.js';
+import { URL } from './constants/constants.js';
 
 export default class App extends Component {
   setup() {
@@ -52,7 +53,7 @@ export default class App extends Component {
 
   async fetchBannerData(banner) {
     try {
-      const bannerData = await fetchBanner();
+      const bannerData = await fetchData(URL.banner);
       banner.setState({ bannerData });
     } catch (err) {
       console.log(err);
