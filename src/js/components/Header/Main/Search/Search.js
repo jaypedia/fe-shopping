@@ -55,6 +55,10 @@ export default class Search extends Component {
       this.displaySearchAutoList(target, autoComplete);
     });
 
+    this.addEvent('focusout', '.search__input', () => {
+      this.selectedIdx = -1;
+    });
+
     this.addEvent('submit', '.search', e => {
       e.preventDefault();
       if (!this.historyOn) return;
@@ -70,7 +74,10 @@ export default class Search extends Component {
       const { autoComplete } = this.$state;
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
       clearTimeout(this.typingTimer);
-      this.typingTimer = setTimeout(() => this.displaySearchAutoList(e.target, autoComplete), this.doneTypingInterval);
+      this.typingTimer = setTimeout(() => {
+        this.displaySearchAutoList(e.target, autoComplete);
+        this.selectedIdx = -1;
+      }, this.doneTypingInterval);
     });
 
     this.addEvent('keydown', '.search__input', e => {
