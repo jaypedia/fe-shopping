@@ -1,7 +1,7 @@
 import Component from './core/Component.js';
 import Header from './components/Header/Header.js';
 import Banner from './components/Banner/Banner.js';
-import { fetchData } from './utils/fetch.js';
+import { fetchData } from './utils/utils.js';
 import { URL } from './constants/constants.js';
 
 export default class App extends Component {

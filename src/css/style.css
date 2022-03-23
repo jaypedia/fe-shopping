@@ -538,7 +538,7 @@ template {
   border-right: 1px solid #f0f0f0;
   cursor: pointer;
   font-size: 12px;
-  height: 35px;
+  height: 33px;
   letter-spacing: -1px;
   width: 134px;
 }
@@ -550,7 +550,6 @@ template {
 }
 .search__category--option {
   background-color: #fff;
-  border: 1px solid #ddd;
   height: 0;
   max-height: 844px;
   overflow-y: auto;
@@ -573,6 +572,7 @@ template {
   margin-left: 10px;
 }
 .search .show {
+  border: 1px solid #ddd;
   height: 600px;
   padding: 10px 0 10px 10px;
 }

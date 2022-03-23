@@ -1,6 +1,6 @@
 import Component from '../../../../../core/Component.js';
 
-export default class AutoComplete extends Component {
+export default class Autocomplete extends Component {
   setup() {
     this.$state = {
       suggestion: null,

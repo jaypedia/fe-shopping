@@ -15,7 +15,7 @@
     border-right: 1px solid $background;
     cursor: pointer;
     font-size: $font-size-12;
-    height: 35px;
+    height: 33px;
     letter-spacing: -1px;
     width: 134px;
 
@@ -28,7 +28,6 @@
 
     &--option {
       background-color: $white;
-      border: 1px solid $border;
       height: 0;
       max-height: 844px;
       overflow-y: auto;
@@ -56,6 +55,7 @@
   }
 
   .show {
+    border: 1px solid $border;
     height: 600px;
     padding: 10px 0 10px 10px;
   }
