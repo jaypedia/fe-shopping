@@ -46,8 +46,13 @@ export default class Search extends Component {
   }
 
   setEvent() {
-    this.addEvent('focusin', '.search__input', () => {
-      this.showSearchHistoryLayer();
+    this.addEvent('focusin', '.search__input', ({ target }) => {
+      const { autoComplete } = this.$state;
+      this.showSearchHistoryLayer(target);
+      if (!target.value) return;
+      const $searchAuto = document.querySelector('.search__auto');
+      $searchAuto.classList.add('show');
+      this.displaySearchAutoList(target, autoComplete);
     });
 
     this.addEvent('submit', '.search', e => {
@@ -81,6 +86,7 @@ export default class Search extends Component {
     const MAX_IDX = searchAutoList.children.length - 1;
     const INITIAL_IDX = -1;
 
+    const searchInput = document.querySelector('.search__input');
     const direction = {
       ArrowUp: () => {
         if (this.selectedIdx <= 0) {
@@ -88,6 +94,8 @@ export default class Search extends Component {
           searchAutoList.children[0].classList.remove('selected');
         }
         searchAutoList.children[--this.selectedIdx].classList.add('selected');
+        const current = searchAutoList.children[this.selectedIdx];
+        searchInput.value = current.textContent;
         if (this.selectedIdx === MAX_IDX) return;
         searchAutoList.children[this.selectedIdx].nextSibling.classList.remove('selected');
       },
@@ -97,6 +105,8 @@ export default class Search extends Component {
           searchAutoList.children[MAX_IDX].classList.remove('selected');
         }
         searchAutoList.children[++this.selectedIdx].classList.add('selected');
+        const current = searchAutoList.children[this.selectedIdx];
+        searchInput.value = current.textContent;
         if (!this.selectedIdx) return;
         searchAutoList.children[this.selectedIdx].previousSibling.classList.remove('selected');
       },
@@ -129,11 +139,11 @@ export default class Search extends Component {
     }
   }
 
-  showSearchHistoryLayer() {
+  showSearchHistoryLayer(target) {
     const searchHistory = document.querySelector('.search__history');
     const $searchAuto = document.querySelector('.search__auto');
     if (!this.$state.searchWord.length) return;
-    if ($searchAuto.classList.contains('show')) return;
+    if ($searchAuto.classList.contains('show') || target.value) return;
     searchHistory.classList.add('show');
   }
 
