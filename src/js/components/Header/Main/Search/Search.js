@@ -1,16 +1,17 @@
 import { localStorageDB } from '../../../../utils/localStorageDB.js';
-import { fetchData } from '../../../../utils/fetch.js';
+import { fetchData } from '../../../../utils/utils.js';
 import { URL } from '../../../../constants/constants.js';
 import Component from '../../../../core/Component.js';
 import SearchCategory from './components/SearchCategory.js';
-import AutoComplete from './components/AutoComplete.js';
+import Autocomplete from './components/Autocomplete.js';
 import RecentSearch from './components/RecentSearch.js';
 
 export default class Search extends Component {
   setup() {
     this.$state = {
       searchWord: JSON.parse(localStorageDB.get('searchWord')) || [],
-      autoComplete: null,
+      searchCategory: null,
+      autocomplete: null,
     };
     this.typingTimer = null;
     this.historyOn = true;
@@ -35,25 +36,27 @@ export default class Search extends Component {
     const $searchCategory = document.querySelector('.search__category');
     const $searchAuto = document.querySelector('.search__auto');
     const $searchHistory = document.querySelector('.search__history');
-    new SearchCategory($searchCategory);
-    const autoComplete = new AutoComplete($searchAuto);
-    this.$state.autoComplete = autoComplete;
+    const searchCategory = new SearchCategory($searchCategory);
+    const autocomplete = new Autocomplete($searchAuto);
+    this.$state.searchCategory = searchCategory;
+    this.$state.autocomplete = autocomplete;
     new RecentSearch($searchHistory, {
       searchWord: this.$state.searchWord,
       deleteAll: this.deleteAll.bind(this),
       deleteItem: this.deleteItem.bind(this),
       toggleHistory: this.toggleHistory.bind(this),
     });
+    this.fetchSearchCategoryData(searchCategory);
   }
 
   setEvent() {
     this.addEvent('focusin', '.search__input', ({ target }) => {
-      const { autoComplete } = this.$state;
+      const { autocomplete } = this.$state;
       this.showSearchHistoryLayer(target);
       if (!target.value) return;
       const $searchAuto = document.querySelector('.search__auto');
       $searchAuto.classList.add('show');
-      this.displaySearchAutoList(target, autoComplete);
+      this.displaySearchAutoList(target, autocomplete);
     });
 
     this.addEvent('focusout', '.search__input', () => {
@@ -68,15 +71,15 @@ export default class Search extends Component {
     });
 
     this.addEvent('input', '.search__input', ({ target }) => {
-      this.setAutoComplete(target);
+      this.setAutocomplete(target);
     });
 
     this.addEvent('keyup', '.search__input', e => {
-      const { autoComplete } = this.$state;
+      const { autocomplete } = this.$state;
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return;
       clearTimeout(this.typingTimer);
       this.typingTimer = setTimeout(() => {
-        this.displaySearchAutoList(e.target, autoComplete);
+        this.displaySearchAutoList(e.target, autocomplete);
         this.selectedIdx = -1;
       }, this.doneTypingInterval);
     });
@@ -84,11 +87,11 @@ export default class Search extends Component {
     this.addEvent('keydown', '.search__input', e => {
       clearTimeout(this.typingTimer);
       if (!(e.key === 'ArrowUp' || e.key === 'ArrowDown')) return;
-      this.scrollAutoComplete(e.key);
+      this.scrollAutocomplete(e.key);
     });
   }
 
-  scrollAutoComplete(key) {
+  scrollAutocomplete(key) {
     const searchAutoList = document.querySelector('.search__auto--list');
     if (!searchAutoList.children.length) return;
     const MAX_IDX = searchAutoList.children.length - 1;
@@ -123,7 +126,7 @@ export default class Search extends Component {
     direction[key]();
   }
 
-  setAutoComplete(target) {
+  setAutocomplete(target) {
     const searchHistory = document.querySelector('.search__history');
     const searchAuto = document.querySelector('.search__auto');
     const userInput = target.value;
@@ -137,11 +140,11 @@ export default class Search extends Component {
     }
   }
 
-  async displaySearchAutoList(target, autoComplete) {
+  async displaySearchAutoList(target, autocomplete) {
     const userInput = target.value;
     try {
       const suggestion = await fetchData(URL.keyword, userInput);
-      autoComplete.setState({ suggestion, userInput });
+      autocomplete.setState({ suggestion, userInput });
     } catch (err) {
       console.log(err);
     }
@@ -199,5 +202,14 @@ export default class Search extends Component {
     localStorageDB.set('searchWord', JSON.stringify(searchWordArr));
     this.setState({ searchWord: searchWordArr });
     this.showSearchHistoryLayer();
+  }
+
+  async fetchSearchCategoryData(searchCategory) {
+    try {
+      const searchCategoryData = await fetchData(URL.searchCategory);
+      searchCategory.setState({ searchCategoryData });
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
