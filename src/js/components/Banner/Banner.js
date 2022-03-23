@@ -1,5 +1,4 @@
 import Component from '../../core/Component.js';
-import { fetchBanner } from '../../utils/fetch.js';
 
 export default class Banner extends Component {
   setup() {
@@ -8,9 +7,7 @@ export default class Banner extends Component {
     };
     this.bannerIdx = 0;
     this.bannerInterval = 3000;
-  }
-
-  mounted() {
+    this.isMouseover = false;
     this.slideBanner();
   }
 
@@ -39,27 +36,48 @@ export default class Banner extends Component {
     `;
   }
 
+  setEvent() {
+    this.addEvent('mouseover', '.banner__thumbnail-list', ({ target }) => {
+      this.isMouseover = true;
+      const { bannerData } = this.$state;
+      const currentBannerIdx = this.bannerIdx > 0 ? this.bannerIdx - 1 : bannerData.length - 1;
+      const currentThumbnail = document.querySelector(`[data-idx="${currentBannerIdx}"]`);
+      currentThumbnail.classList.remove('selected-banner');
+      const targetIdx = target.closest('.banner__thumbnail-item').dataset.idx;
+      const bannerImg = document.querySelector('.banner__img-item');
+      bannerImg.style.background = `url(${bannerData[targetIdx].banner}) center no-repeat`;
+    });
+
+    this.addEvent('mouseout', '.banner__thumbnail-list', ({ target }) => {
+      this.isMouseover = false;
+      this.bannerIdx = target.closest('.banner__thumbnail-item').dataset.idx;
+      this.slideBannerByIdx();
+    });
+  }
+
   slideBanner() {
+    setInterval(() => {
+      if (this.isMouseover) return;
+      this.slideBannerByIdx();
+    }, this.bannerInterval);
+  }
+
+  slideBannerByIdx() {
     const { bannerData } = this.$state;
     const bannerImg = document.querySelector('.banner__img-item');
-
-    setInterval(() => slideBannerByIdx.bind(this)(), this.bannerInterval);
-
-    function slideBannerByIdx() {
-      if (bannerData && this.bannerIdx < bannerData.length) {
-        const currentThumbnail = document.querySelector(`[data-idx="${this.bannerIdx}"]`);
-        const previousThumbnail = currentThumbnail.previousElementSibling;
-        if (!this.bannerIdx) {
-          const lastThumbnail = document.querySelector(`[data-idx="${bannerData.length - 1}"]`);
-          lastThumbnail.classList.remove('selected-banner');
-        }
-        currentThumbnail.classList.add('selected-banner');
-        previousThumbnail && previousThumbnail.classList.remove('selected-banner');
-        bannerImg.style.background = `url(${bannerData[this.bannerIdx++].banner}) center no-repeat`;
+    if (bannerData && this.bannerIdx < bannerData.length) {
+      const currentThumbnail = document.querySelector(`[data-idx="${this.bannerIdx}"]`);
+      const previousThumbnail = currentThumbnail.previousElementSibling;
+      if (!this.bannerIdx) {
+        const lastThumbnail = document.querySelector(`[data-idx="${bannerData.length - 1}"]`);
+        lastThumbnail.classList.remove('selected-banner');
       }
-      if (bannerData && this.bannerIdx >= bannerData.length) {
-        this.bannerIdx = 0;
-      }
+      currentThumbnail.classList.add('selected-banner');
+      previousThumbnail && previousThumbnail.classList.remove('selected-banner');
+      bannerImg.style.background = `url(${bannerData[this.bannerIdx++].banner}) center no-repeat`;
+    }
+    if (bannerData && this.bannerIdx >= bannerData.length) {
+      this.bannerIdx = 0;
     }
   }
 }
