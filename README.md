@@ -1,6 +1,6 @@
 # Coupang Clone
 
-##### 2022.3.14 ~ 3.18
+##### 2 weeks: 2022.3.14 ~ 3.25
 
 ---
 
@@ -106,6 +106,76 @@
 
 - [ ] 키보드 위, 아래 방향키로 자동완성 키워드 탐색 기능 완성
 - [ ] Carousel 완성
+
+---
+
+## Step 3
+
+### 진행상황
+
+- [x] 키보드 위, 아래 방향키로 자동완성 키워드 탐색 기능 완성
+  - [x] 아래 방향키 누를 때는 커서가 단어의 맨 끝에 있지만 위 방향키를 누를 땐 커서가 단어의 맨 앞으로 가는데, 커서가 항상 맨 끝에 있도록 할 수 없을지? - 해결 완료
+- [x] Carousel 자동 슬라이딩 기능
+  - [ ] Carousel에 debounce 적용
+
+### 어려웠던 점 & 질문
+
+#### (1) Carousel: Banner image 전환 시 "Dropped Frame" 발생 문제
+
+![image](https://user-images.githubusercontent.com/85419343/159647441-30816aad-0de2-41da-92bc-2792fdc02bbc.png)
+
+- 배너 이미지가 전환될 때마다 깜빡거리는 느낌이 들어서 성능이 별로 좋지 않다는 느낌이 들었습니다. 개발자 도구의 Performance 탭으로 성능을 측정해 본 결과 역시나 문제가 있었고 `Dropped Frame`이라는 것이 배너 이미지 전환 시 발생하고 있었습니다. 이것이 발생할 때는 Frame이 보이지 않아서 육안으로도 확인 가능한 깜빡임이 발생하는 것이었습니다.
+- 하지만 왜 Dropped Frame이 발생하는 건지에 대해서는 잘 모르겠습니다. 현상은 대략적으로 분석이 되었는데 원인을 찾지 못했습니다.
+- 혹시나 url link로 불러오는 것에서 지연이 발생하나 해서, 링크가 아닌 img 폴더에 jpg 파일을 넣어 그것을 불러오는 식으로도 시도했는데(예 - `url('./img/bannerImg.jpg') 같은 결과였습니다.
+
+```js
+  slideBanner() {
+    setInterval(() => {
+      if (this.isMouseover) return;
+      this.slideBannerByIdx();
+    }, this.bannerInterval);
+  }
+
+  slideBannerByIdx() {
+   ...
+      bannerImg.style.background = `url(${bannerData[this.bannerIdx++].banner}) center no-repeat`;
+  }
+```
+
+- 현재 위와 같은 식으로 배너 이미지를 바꿔주고 있습니다. setInterval의 콜백 함수에 `slideBannerByIdx` 함수를 넣어 지정된 초마다 위 로직을 호출하고 있습니다. Dropped Frame이 발생할 만한 여지가 있을까요?
+
+#### (2) 이벤트 다루는 로직 작성 시
+
+```js
+// 장황한 로직... (Search.js)
+  scrollAutoComplete(key) {
+  ...
+    const direction = {
+      ArrowUp: () => {
+        ...
+      },
+      ArrowDown: () => {
+      ...
+      },
+    };
+    direction[key]();
+  }
+```
+
+- 이번에는 Search.js의 `scrollAutoComplete` 함수, Banner.js의 `slideBannerByIdx` 함수를 주로 코딩했는데, 로직을 먼저 글로 정리해 보고 그것을 코드로 옮겼음에도 불구하고 코드가 굉장히 장황해지고 내부를 봤을 때 직관적으로 읽어내기 어려울 것 같다는 생각을 했습니다. if문으로 분기해야 하는 것도 많고요.
+- 대안으로 객체를 이용해서 코드가 좀 더 깔끔하게 읽히게 하려고 했지만 근본적인 해결책은 아닌 것 같았습니다. 이럴 경우 함수를 최대한 여러 개로 만드는 게 좋은 방법일까요? 이 경우 컴포넌트 내부에 함수가 너무 많아지게 됩니다. 혹은 중첩된 함수로 만드는 것은 어떨까요?
+
+#### (3) 카테고리 Dropdown animation 수정 (SCSS)
+
+- 카테고리 드롭다운 클릭 시 삼각형 토글이 위, 아래로 움직이도록 했습니다. 사소한 디테일을 챙겨보았습니다.
+- 카테고리 드롭다운 시 글자가 겹쳐져 애니메이션이 부자연스럽다고 생각되어 수정해 보았습니다.
+- 그러나 또 다른 문제가 발생했는데, 패딩이 변경되면서 움직이고 있습니다. 여러 방법을 시도했지만 해결하지 못했습니다.
+
+| Before                                                                                                                   | After                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| ![categoryBefore](https://user-images.githubusercontent.com/85419343/159675651-e741cff9-d057-43d6-a743-2dad1c145b2c.gif) | ![categoryAfter](https://user-images.githubusercontent.com/85419343/159682950-3c0de31b-e996-45bc-9def-f5d5a6a696ed.gif) |
+| transform: scaleY() 사용                                                                                                 | height 조정                                                                                                             |
+| 드롭다운 시 글자 겹쳐져 보임                                                                                             | list의 패딩이 움직임                                                                                                    |
 
 ---
 

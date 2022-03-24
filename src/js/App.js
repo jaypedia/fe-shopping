@@ -1,8 +1,16 @@
 import Component from './core/Component.js';
 import Header from './components/Header/Header.js';
 import Banner from './components/Banner/Banner.js';
+import { fetchData } from './utils/utils.js';
+import { URL } from './constants/constants.js';
 
 export default class App extends Component {
+  setup() {
+    this.$state = {
+      banner: null,
+    };
+  }
+
   template() {
     return `
     <header class="header"></header>
@@ -15,7 +23,9 @@ export default class App extends Component {
     const $header = document.querySelector('.header');
     const $banner = document.querySelector('.banner');
     new Header($header);
-    new Banner($banner);
+    const banner = new Banner($banner);
+    this.$state.banner = banner;
+    this.fetchBannerData(banner);
   }
 
   setEvent() {
@@ -38,6 +48,15 @@ export default class App extends Component {
 
     if (!target.closest('.search__category')) {
       searchCategoryOption.classList.remove('show');
+    }
+  }
+
+  async fetchBannerData(banner) {
+    try {
+      const bannerData = await fetchData(URL.banner);
+      banner.setState({ bannerData });
+    } catch (err) {
+      console.log(err);
     }
   }
 }
