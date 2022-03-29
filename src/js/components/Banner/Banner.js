@@ -8,6 +8,7 @@ export default class Banner extends Component {
     this.$state = {
       bannerData: null,
     };
+    this.MAX_CAROUSEL_COUNT = 5;
     this.preBannerIdx = 5;
     this.curBannerIdx = 0;
     this.bannerInterval = 3000;
@@ -49,42 +50,57 @@ export default class Banner extends Component {
     this.addEvent('mouseout', '.banner__thumbnail-list', this.thumbnailMouseoutHandler.bind(this));
   }
 
+  // Event Handler functions
   thumbnailMouseoverHandler({ target }) {
     this.isMouseover = true;
-    this.displayTargetBanner(target, { show: true });
-    this.removeThumbnailBorder();
+    this.showSelectedElements(target, { show: true });
+    this.hideElements();
   }
 
   thumbnailMouseoutHandler({ target }) {
     this.isMouseover = false;
-    this.displayTargetBanner(target, { show: false });
-    this.showBanner();
+    this.showSelectedElements(target, { show: false });
+    this.runCarousel();
   }
 
-  removeThumbnailBorder() {
-    if (!this.selectedThumbnail()) return;
-    const currentIdx = this.selectedThumbnail().dataset.thumbIdx;
-    const currentBanner = document.querySelector(`[data-banner-idx="${currentIdx}"]`);
-    currentBanner.classList.remove('show');
-    this.selectedThumbnail().classList.remove('selected-banner');
-  }
-
-  displayTargetBanner(target, { show }) {
+  showSelectedElements(target, { show }) {
     const targetIdx = target.closest('.banner__thumbnail-item').dataset.thumbIdx;
     const targetBanner = document.querySelector(`[data-banner-idx="${targetIdx}"]`);
     show ? targetBanner.classList.add('show') : targetBanner.classList.remove('show');
-    this.curBannerIdx = Number(targetIdx);
-    this.preBannerIdx = this.curBannerIdx === 0 ? 5 : this.curBannerIdx - 1;
+    this.setBannerIdx(targetIdx);
   }
 
+  setBannerIdx(targetIdx) {
+    this.curBannerIdx = Number(targetIdx);
+    this.preBannerIdx = this.curBannerIdx === 0 ? this.MAX_CAROUSEL_COUNT : this.curBannerIdx - 1;
+  }
+
+  hideElements() {
+    if (!this.selectedThumbnail()) return;
+    const currentIdx = Number(this.selectedThumbnail().dataset.thumbIdx);
+    if (currentIdx === this.curBannerIdx) return;
+    this.hideCurrentBanner(currentIdx);
+    this.removeSelectedThumbnail();
+  }
+
+  hideCurrentBanner(currentIdx) {
+    const currentBanner = document.querySelector(`[data-banner-idx="${currentIdx}"]`);
+    currentBanner.classList.remove('show');
+  }
+
+  removeSelectedThumbnail() {
+    this.selectedThumbnail().classList.remove('selected-banner');
+  }
+
+  // Carousel Logics
   setCarouselInterval() {
     setInterval(() => {
       if (this.isMouseover) return;
-      this.showBanner();
+      this.runCarousel();
     }, this.bannerInterval);
   }
 
-  showBanner() {
+  runCarousel() {
     this.removePreviousBanner();
     this.showCurrentBanner();
     this.increaseBannerIdx();
@@ -105,7 +121,7 @@ export default class Banner extends Component {
   }
 
   increaseBannerIdx() {
-    this.preBannerIdx = this.preBannerIdx >= 5 ? 0 : this.preBannerIdx + 1;
-    this.curBannerIdx = this.curBannerIdx >= 5 ? 0 : this.curBannerIdx + 1;
+    this.preBannerIdx = this.preBannerIdx >= this.MAX_CAROUSEL_COUNT ? 0 : this.preBannerIdx + 1;
+    this.curBannerIdx = this.curBannerIdx >= this.MAX_CAROUSEL_COUNT ? 0 : this.curBannerIdx + 1;
   }
 }
