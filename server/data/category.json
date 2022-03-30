@@ -1,0 +1,897 @@
+{
+  "result": [
+    {
+      "name": "패션의류/잡화",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/mother-day-15/64/Artboard_18-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_8e8d405d-0065-49e2-84c9-02d212d875b2.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "뷰티",
+      "iconSrc": "https://cdn0.iconfinder.com/data/icons/online-shopping-171/20/outline_shopping-cosmetics-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_200718fb-4027-48c7-a896-cb08e3164557.png",
+      "child": [
+        {
+          "secondContent": "스킨케어",
+          "child": [
+            { "thirdContent": "스킨" },
+            { "thirdContent": "로션" },
+            { "thirdContent": "에센스/세럼/엠플" },
+            { "thirdContent": "미스트" },
+            { "thirdContent": "오일" },
+            { "thirdContent": "크림/올인원" },
+            { "thirdContent": "기초세트" },
+            { "thirdContent": "마스크/팩" },
+            { "thirdContent": "선케어/태닝" }
+          ]
+        },
+        {
+          "secondContent": "클렌징/필링",
+          "child": [
+            { "thirdContent": "클렌징 폼" },
+            { "thirdContent": "클렌징 젤/파우더" },
+            { "thirdContent": "클렌징 비누" },
+            { "thirdContent": "클렌징 오일" },
+            { "thirdContent": "클렌징 워터" },
+            { "thirdContent": "립/아이리무버" },
+            { "thirdContent": "클렌징 티슈/시트" },
+            { "thirdContent": "클렌징 로션/크림" },
+            { "thirdContent": "클렌징세트" },
+            { "thirdContent": "스크럽/필링" }
+          ]
+        },
+        {
+          "secondContent": "메이크업",
+          "child": [
+            { "thirdContent": "아이 메이크업" },
+            { "thirdContent": "립 메이크업" },
+            { "thirdContent": "베이스 메이크업" },
+            { "thirdContent": "치크메이크업" },
+            { "thirdContent": "멀티메이크업" },
+            { "thirdContent": "바디메이크업" }
+          ]
+        },
+        {
+          "secondContent": "향수",
+          "child": [{ "thirdContent": "여성향수" }, { "thirdContent": "남성향수" }, { "thirdContent": "드레스퍼퓸" }]
+        },
+        {
+          "secondContent": "남성화장품",
+          "child": [
+            { "thirdContent": "남성스킨케어" },
+            { "thirdContent": "남성메이크업" },
+            { "thirdContent": "남성화장품세트" },
+            { "thirdContent": "남성 헤어케어" },
+            { "thirdContent": "남성 바디케어" },
+            { "thirdContent": "남성 쉐이빙 케어" }
+          ]
+        },
+        {
+          "secondContent": "네일",
+          "child": [
+            { "thirdContent": "네일팁/스티커" },
+            { "thirdContent": "일반네일" },
+            { "thirdContent": "젤네일" },
+            { "thirdContent": "큐티클/영양" },
+            { "thirdContent": "네일케어도구" },
+            { "thirdContent": "네일아트소품/도구" },
+            { "thirdContent": "네일세트" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "출산/유아동",
+      "iconSrc": "https://cdn0.iconfinder.com/data/icons/baby-kid-child-outline/64/Baby_Cute_Cartoon_Bottle_Milk-256.png",
+      "bannerImgSrc": "https://image10.coupangcdn.com/image/displayitem/displayitem_64968242-6944-4728-a3dc-f2ac9165927d.jpg",
+      "child": [
+        {
+          "secondContent": "베이비패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "메이커 의류" },
+            { "thirdContent": "젖병" },
+            { "thirdContent": "보행기" },
+            { "thirdContent": "잡화" }
+          ]
+        },
+        {
+          "secondContent": "여아키즈패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "스포츠/테마의류" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "잡화" }
+          ]
+        },
+        {
+          "secondContent": "남아키즈패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "스포츠/테마의류" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "잡화" }
+          ]
+        },
+        {
+          "secondContent": "기저귀",
+          "child": [
+            { "thirdContent": "일회용 기저귀" },
+            { "thirdContent": "수영장 기저귀" },
+            { "thirdContent": "천기저귀/액세서리" },
+            { "thirdContent": "배변훈련팬티" },
+            { "thirdContent": "기저귀케익" },
+            { "thirdContent": "기저귀크림/파우더" },
+            { "thirdContent": "기저귀정리함" }
+          ]
+        },
+        {
+          "secondContent": "물티슈",
+          "child": [{ "thirdContent": "물티슈" }, { "thirdContent": "건티슈" }, { "thirdContent": "물티슈액세서리" }]
+        }
+      ]
+    },
+    {
+      "name": "식품",
+      "iconSrc": "https://cdn3.iconfinder.com/data/icons/fruit-and-vegetables-outline/32/Fruits_and_Vegetables_fruit_food_apple-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_96ace47f-0079-4436-9cf0-25a43ac75517.jpg",
+      "child": [
+        {
+          "secondContent": "과일",
+          "child": [
+            { "thirdContent": "사과/배" },
+            { "thirdContent": "귤/한라봉/감귤류" },
+            { "thirdContent": "감/홍시/곶감" },
+            { "thirdContent": "키위/참다래" },
+            { "thirdContent": "토마토/자두/복숭아/포도" }
+          ]
+        },
+        {
+          "secondContent": "견과/건과",
+          "child": [
+            { "thirdContent": "땅콩/호두" },
+            { "thirdContent": "밤/잣/은행" },
+            { "thirdContent": "아몬드/피스타치오" },
+            { "thirdContent": "기타견과류" },
+            { "thirdContent": "건과일/건채소" }
+          ]
+        },
+        {
+          "secondContent": "채소",
+          "child": [
+            { "thirdContent": "두부/콩나물" },
+            { "thirdContent": "감자/고구마" },
+            { "thirdContent": "당근/뿌리채소" },
+            { "thirdContent": "오이/고추/열매채소" },
+            { "thirdContent": "양파/마늘/파" }
+          ]
+        },
+        {
+          "secondContent": "쌀/잡곡",
+          "child": [
+            { "thirdContent": "백미" },
+            { "thirdContent": "현미/찹쌀/흑미" },
+            { "thirdContent": "기능성쌀/기타쌀" },
+            { "thirdContent": "공/팥/보리" },
+            { "thirdContent": "조/수수/깨" },
+            { "thirdContent": "기타잡곡/혼합곡" }
+          ]
+        },
+        {
+          "secondContent": "축산/계란",
+          "child": [
+            { "thirdContent": "소고기" },
+            { "thirdContent": "돼지고기" },
+            { "thirdContent": "닭/오리고기" },
+            { "thirdContent": "양/말고기" },
+            { "thirdContent": "기타 육고기" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "주방용품",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/kitchen-appliances-computers-and-electronics/32/Appliances-18-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_41e6f550-2b22-4af9-8ee0-48d8a43c6a64.jpg",
+      "child": [
+        {
+          "secondContent": "주방가전",
+          "child": [
+            { "thirdContent": "전기밥솥" },
+            { "thirdContent": "전자레인지" },
+            { "thirdContent": "오븐" },
+            { "thirdContent": "가스레인지" },
+            { "thirdContent": "식기세척기" }
+          ]
+        },
+        {
+          "secondContent": "냄비/프라이팬",
+          "child": [
+            { "thirdContent": "냄비" },
+            { "thirdContent": "프라이팬" },
+            { "thirdContent": "냄비/프라이팬세트" },
+            { "thirdContent": "주전자/티포트" },
+            { "thirdContent": "찜솥/들통" }
+          ]
+        },
+        {
+          "secondContent": "칼/도마",
+          "child": [
+            { "thirdContent": "두부/콩나물" },
+            { "thirdContent": "감자/고구마" },
+            { "thirdContent": "당근/뿌리채소" },
+            { "thirdContent": "오이/고추/열매채소" },
+            { "thirdContent": "양파/마늘/파" }
+          ]
+        },
+        {
+          "secondContent": "쌀/잡곡",
+          "child": [
+            { "thirdContent": "식도" },
+            { "thirdContent": "과도" },
+            { "thirdContent": "빵칼" },
+            { "thirdContent": "채칼" },
+            { "thirdContent": "칼세트" },
+            { "thirdContent": "도마" }
+          ]
+        },
+        {
+          "secondContent": "그릇/홈세트",
+          "child": [
+            { "thirdContent": "식기홈세트" },
+            { "thirdContent": "그릇/식기" },
+            { "thirdContent": "접시/플레이트" },
+            { "thirdContent": "식탁보" },
+            { "thirdContent": "쟁반" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "생활용품",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/furniture-269/32/Artboard_26-256.png",
+      "bannerImgSrc": "https://image10.coupangcdn.com/image/displayitem/displayitem_52cf0f76-77a1-4efe-bc3f-ca32e79a9ab0.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "홈인테리어",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/home-appliances-furnitures/100/sofa-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_29258120-0af0-4891-a5de-3d6c5f0d30de.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "가전디지털",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/kitchen-appliances-computers-and-electronics/32/Appliances-07-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_248e20ee-5bc9-4381-adb7-5d912b6e2487.png",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "스포츠/레저",
+      "iconSrc": "https://cdn3.iconfinder.com/data/icons/solid-amenities-icon-set/64/Tennis_2-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_482303d8-85f0-4ea1-9d36-57a2704f20ba.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "자동차용품",
+      "iconSrc": "https://cdn1.iconfinder.com/data/icons/adventure-outline-1/64/Adventure-Line-23-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_ecab18ca-217c-4619-9a9b-7109c53d3a07.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "도서/음반/DVD",
+      "iconSrc": "https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/LIBRARY_2-256.png",
+      "bannerImgSrc": "https://image8.coupangcdn.com/image/displayitem/displayitem_713a5242-a57c-41e4-be0c-6103a8125ac6.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "완구/취미",
+      "iconSrc": "https://cdn4.iconfinder.com/data/icons/multimedia-75/512/multimedia-50-256.png",
+      "bannerImgSrc": "https://image10.coupangcdn.com/image/displayitem/displayitem_5c2eaa30-b050-48be-a218-6b15e9daa98b.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "문구/오피스",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/miscellaneous-31/60/presentation-article-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_97762dd0-95f0-4fee-b3da-03dd3c9952b9.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "반려동물용품",
+      "iconSrc": "https://cdn2.iconfinder.com/data/icons/veterinary-line-fluffy-pet/512/Pet_food-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_3108d6fc-83cd-482a-afdd-bf77d9c89eda.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "헬스/건강식품",
+      "iconSrc": "https://cdn0.iconfinder.com/data/icons/tidee-health/24/015_005_heart_health_good_healthy-256.png",
+      "bannerImgSrc": "https://image10.coupangcdn.com/image/displayitem/displayitem_595e990e-a619-4b1c-8b89-d3fbc0fd981a.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "여행/티켓",
+      "iconSrc": "https://cdn1.iconfinder.com/data/icons/travel-line-good-life/512/plane-256.png",
+      "bannerImgSrc": "https://image6.coupangcdn.com/image/displayitem/displayitem_0dd3c384-c16d-4c26-a2d7-1f2552246650.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "테마관",
+      "iconSrc": "https://cdn4.iconfinder.com/data/icons/top-search-7/128/_school_building_education_college_library_university-256.png",
+      "bannerImgSrc": "https://image7.coupangcdn.com/image/displayitem/displayitem_cb706040-306d-44b5-aedb-cff724d90163.jpg",
+      "child": [
+        {
+          "secondContent": "여성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남성패션",
+          "child": [
+            { "thirdContent": "의류" },
+            { "thirdContent": "속옷/잠옷" },
+            { "thirdContent": "신발" },
+            { "thirdContent": "가방/잡화" }
+          ]
+        },
+        {
+          "secondContent": "남여 공용 의류",
+          "child": [
+            { "thirdContent": "티셔츠" },
+            { "thirdContent": "맨투맨/후드티" },
+            { "thirdContent": "셔츠" },
+            { "thirdContent": "바지" },
+            { "thirdContent": "트레이닝복" },
+            { "thirdContent": "후드집업/집업류" },
+            { "thirdContent": "니트류/조끼" },
+            { "thirdContent": "아우터" },
+            { "thirdContent": "테마의류" },
+            { "thirdContent": "커플룩/패밀리룩" }
+          ]
+        },
+        {
+          "secondContent": "유아동패션",
+          "child": [
+            { "thirdContent": "베이비" },
+            { "thirdContent": "여름" },
+            { "thirdContent": "겨율" },
+            { "thirdContent": "여아" },
+            { "thirdContent": "남아" }
+          ]
+        }
+      ]
+    }
+  ]
+}
