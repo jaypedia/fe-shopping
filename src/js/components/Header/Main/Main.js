@@ -3,16 +3,31 @@ import Category from './Category/Category.js';
 import Search from './Search/Search.js';
 
 export default class Main extends Component {
+  cateLayer = document.querySelector('.category__layer');
+
   mounted() {
-    const $category = document.querySelector('.header__main--category');
+    const $cateLayer = document.querySelector('.category__layer');
     const $searchFormBox = document.querySelector('.search-form-box');
-    new Category($category);
+    new Category($cateLayer);
     new Search($searchFormBox);
+  }
+
+  setEvent() {
+    this.addEvent('mouseover', '.category', () => {
+      this.cateLayer.classList.add('show');
+    });
+    this.addEvent('mouseout', '.category', ({ target }) => {
+      if (target.closest('.category__layer')) return;
+      this.cateLayer.classList.remove('show');
+    });
   }
 
   template() {
     return /*html*/ `
-    <div class="header__main--category"></div>
+    <div class="header__main--category category">
+      <button class="category__btn">카테고리</button>
+      <div class="category__layer"></div>
+    </div>
     <div class="header__main-box">
         <div class="header__main-box--top">
             <div class="logo-box">
@@ -20,9 +35,7 @@ export default class Main extends Component {
                 <img src="//image7.coupangcdn.com/image/coupang/common/logo_coupang_w350.png" width="174" height="41" alt="쿠팡로고" />
             </a>
         </div>
-
         <div class="search-form-box"></div>
-
         <ul class="icon-menu">
                 <li class="icon-menu__my-coupang">
                   <div class="my-coupang__icon icon"></div>
