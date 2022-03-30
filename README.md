@@ -1,6 +1,6 @@
 # Coupang Clone
 
-##### 2 weeks: 2022.3.14 ~ 3.25
+##### 3 weeks: 2022.3.14 ~ 4.1
 
 ---
 
@@ -176,6 +176,55 @@
 | ![categoryBefore](https://user-images.githubusercontent.com/85419343/159675651-e741cff9-d057-43d6-a743-2dad1c145b2c.gif) | ![categoryAfter](https://user-images.githubusercontent.com/85419343/159682950-3c0de31b-e996-45bc-9def-f5d5a6a696ed.gif) |
 | transform: scaleY() 사용                                                                                                 | height 조정                                                                                                             |
 | 드롭다운 시 글자 겹쳐져 보임                                                                                             | list의 패딩이 움직임                                                                                                    |
+
+#### (4) 리팩토링 관련 질문
+
+```js
+// Search.js
+  setAutocomplete(target) {
+    const searchHistory = document.querySelector('.search__history');
+    const searchAuto = document.querySelector('.search__auto');
+    ...
+  }
+
+  showSearchHistoryLayer(target) {
+    const searchHistory = document.querySelector('.search__history');
+    const searchAuto = document.querySelector('.search__auto');
+    ...
+  }
+```
+
+- Search.js의 경우 위와 같이 메서드 내부에서 querySelector를 사용해서 element를 찾는 로직이 중복되어 있습니다.
+  - 이 로직을 해당 클래스의 property로 가지고 있는 게 나은 방법일까요? 그렇게 하면 중복 로직이 줄어들게 됩니다.
+  - 또한 `document.querySelector` 로직은 따로 util 함수로 만드시는 분들이 많던데 그렇게 하는 것을 추천하시나요?
+
+---
+
+## Step 4
+
+##### March 30, 2022
+
+![layer](https://user-images.githubusercontent.com/85419343/160829658-4ab5be4b-19c4-4822-8c7d-55258ec00e3b.gif)
+
+### 진행상황
+
+- [x] Banner "Dropped Frame" 문제 해결
+- [x] 스마트 메뉴 레이어 (구현중)
+- [x] Store 시도
+- [ ] Debounce 적용과 학습 - 적용 시도했으나 잘 되지 않아서 추후 리팩토링 예정
+
+### 어려웠던 점
+
+- Carousel 배너의 썸네일 mouseover에 디바운싱 적용하는 것을 시도하였습니다. 기존 로직에 debounce 함수만 잘 적용하면 될 줄 알았지만 생각보다 쉽지 않아서 보류한 상태입니다.
+- 상태를 각 컴포넌트에 저장하는 것이 아닌 Store에 중앙 집중식으로 저장해서 관리하는 것을 시도했습니다. 하지만 옵저버 패턴이 익숙하지 않아서 그 부분은 아직 적용하지 못했습니다. 제가 할 수 있는 범위 내에서만 Store를 간략하게 만들어 보았습니다.
+- 처음에 3단의 카테고리 레이어를 어떤 식으로 구조를 잡아야 할지가 어려웠습니다. 처음부터 완벽하게 설계하고 만들진 않았고 만들어 가면서 더 나은 방법으로 수정해 나가는 방식으로 진행했습니다.
+
+---
+
+#### Vanilla JavaScript로 상태 관리 시스템 만들기
+
+- 컴포넌트가 많아질수록 상태를 관리하기 힘들어진다.
+- 이때 컴포넌트에 종속적이지 않은 **중앙 집중형 저장소**(Store)를 만들어 사용하면 편리하다.
 
 ---
 
