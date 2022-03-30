@@ -4,15 +4,14 @@
   width: 100%;
 
   &__img-list {
+    @include flexbox();
     height: 450px;
     width: 100%;
   }
 
   &__img-item {
-    background: url('https://static.coupangcdn.com/pa/cmg_paperboy/image/1647244593217/220210_%EC%BF%A0%ED%8C%A1%EB%B9%84%EC%A6%88_SMD-15590_PC%284%29.jpg')
-      center no-repeat;
+    display: none;
     height: 100%;
-    width: 100%;
   }
 
   &__selected-product {
