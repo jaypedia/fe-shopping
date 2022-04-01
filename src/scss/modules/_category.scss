@@ -1,0 +1,102 @@
+.category {
+  background: url('https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png') no-repeat;
+  height: 115px;
+  position: relative;
+  text-align: center;
+  width: 110px;
+  font-size: $font-size-12;
+  letter-spacing: -1px;
+
+  &__btn {
+    color: $white;
+    font-size: $font-size-13;
+    margin-top: 73px;
+  }
+
+  &__layer {
+    width: 750px;
+    height: 530px;
+    position: absolute;
+    top: 114px;
+    box-shadow: 0 4px 5px rgb(0 0 0 / 30%);
+    border-top: 1px solid $border;
+    //  display: none;
+
+    &--first {
+      @include layer-position;
+      border-right: 1px solid $border;
+      width: 150px;
+      height: 530px;
+      min-height: 450px;
+      background-color: $white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    &--second {
+      //  display: none;
+      @include layer-position(150px);
+      width: 600px;
+      height: 530px;
+      background-color: $white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    &--third {
+      //  display: none;
+      @include layer-position(300px);
+      width: 130px;
+      height: 530px;
+      border-left: 1px solid $border;
+      padding: 10px;
+      text-align: left;
+    }
+
+    &--img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__list {
+    &--second {
+      width: 130px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 8px;
+
+    &--icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__item:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: $blue;
+  }
+}
+
+.selected-cate {
+  font-weight: bold;
+  color: $blue;
+  position: relative;
+}
+
+.selected-cate::after {
+  background-image: url('https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png');
+  background-position: -156px -20px;
+  content: '';
+  height: 9px;
+  position: absolute;
+  right: 0px;
+  width: 5px;
+}

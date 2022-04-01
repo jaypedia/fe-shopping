@@ -3,6 +3,7 @@ const cors = require('cors');
 const keyword = require('./data/keyword.json');
 const banner = require('./data/banner.json');
 const searchCategory = require('./data/searchCategory.json');
+const category = require('./data/category.json');
 const app = express();
 const PORT = 3000;
 const MAX_RESULT_COUNT = 10;
@@ -19,6 +20,10 @@ app.get('/banner', (req, res) => {
 
 app.get('/searchCategory', (req, res) => {
   res.json(searchCategory.result);
+});
+
+app.get('/category', (req, res) => {
+  res.json(category.result);
 });
 
 // ex - /autocomplete?keyword=mango

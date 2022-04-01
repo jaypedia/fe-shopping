@@ -31,7 +31,7 @@
       height: 0;
       max-height: 844px;
       overflow-y: auto;
-      padding: 0;
+      padding: 0 10px;
       position: absolute;
       top: 95px;
       transform-origin: top center;
@@ -54,10 +54,10 @@
     }
   }
 
-  .show {
+  .dropdown {
     border: 1px solid $border;
     height: 600px;
-    padding: 10px 0 10px 10px;
+    padding: 10px;
   }
 
   .up {

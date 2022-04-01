@@ -33,7 +33,7 @@ export default class SearchCategory extends Component {
   setCurrentCategory(target) {
     const searchCategoryOption = document.querySelector('.search__category--option');
     const searchCategoryButton = document.querySelector('.search__category--button');
-    searchCategoryOption.classList.toggle('show');
+    searchCategoryOption.classList.toggle('dropdown');
     searchCategoryButton.classList.toggle('up');
     if (!target.closest('.search__category--option')) return;
     const searchCategory = target.textContent;
