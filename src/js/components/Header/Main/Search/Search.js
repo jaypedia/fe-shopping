@@ -2,9 +2,9 @@ import { localStorageDB } from '../../../../utils/localStorageDB.js';
 import { fetchData, isArrowKey } from '../../../../utils/utils.js';
 import { URL } from '../../../../constants/constants.js';
 import Component from '../../../../core/Component.js';
-import SearchCategory from './components/SearchCategory.js';
-import Autocomplete from './components/Autocomplete.js';
-import RecentSearch from './components/RecentSearch.js';
+import SearchCategory from './SearchCategory.js';
+import Autocomplete from './Autocomplete.js';
+import RecentSearch from './RecentSearch.js';
 
 export default class Search extends Component {
   searchInput = () => this.$target.querySelector('.search__input');

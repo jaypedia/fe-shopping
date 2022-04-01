@@ -25,14 +25,14 @@ export default class App extends Component {
     new Header($header);
     const banner = new Banner($banner);
     this.$state.banner = banner;
-    this.fetchBannerData(banner);
+    this.fetchAndSetBannerData(banner);
   }
 
   setEvent() {
-    this.addEvent('click', '#app', ({ target }) => this.hideLayer(target));
+    this.addEvent('click', '#app', this.hideLayer.bind(this));
   }
 
-  hideLayer(target) {
+  hideLayer({ target }) {
     const searchAuto = document.querySelector('.search__auto');
     const searchHistory = document.querySelector('.search__history');
     const searchInput = document.querySelector('.search__input');
@@ -47,11 +47,11 @@ export default class App extends Component {
     }
 
     if (!target.closest('.search__category')) {
-      searchCategoryOption.classList.remove('show');
+      searchCategoryOption.classList.remove('dropdown');
     }
   }
 
-  async fetchBannerData(banner) {
+  async fetchAndSetBannerData(banner) {
     try {
       const bannerData = await fetchData(URL.banner);
       banner.setState({ bannerData });

@@ -1,4 +1,4 @@
-import Component from '../../../../../core/Component.js';
+import Component from '../../../../core/Component.js';
 
 export default class RecentSearch extends Component {
   template() {
